@@ -1,0 +1,31 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+
+# Carregar dados
+df = pd.read_csv('heart_disease.csv')
+
+# Analisar dados
+sns.countplot(df['target'])  # Visualizar a distribuição de pacientes com e sem doença cardíaca
+plt.show()
+
+# Selecionar variáveis de interesse
+X = df.drop(columns=['target'])
+y = df['target']
+
+# Dividir em treino e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Treinar modelo de regressão logística
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Fazer previsões
+y_pred = model.predict(X_test)
+
+# Avaliar modelo
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy}")
