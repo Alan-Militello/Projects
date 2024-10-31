@@ -25,7 +25,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Configurações de autenticação usando apenas o Bearer Token para a API v2 do Twitter
-bearer_token = 'AAAAAAAAAAAAAAAAAAAAAI3NwgEAAAAAcm9fuNgwerrrC%2BF0XMy4QY85PPM%3DQr47RT8WzEnUyrJs5Nx0GxK6MpqklUTGFxqJAo4pplCvf6EfXM'
+bearer_token = 'xxx'
 client = tweepy.Client(bearer_token=bearer_token)
 
 # Baixando recursos do NLTK necessários para pré-processamento
